@@ -1,4 +1,4 @@
-FROM php:7.0-fpm
+FROM php:7.2-fpm
 LABEL maintainer="megic@wiredmed.com"
 RUN apt-get update \
 	# 相关依赖必须手动安装
@@ -9,5 +9,5 @@ RUN apt-get update \
         libpng-dev \
     # 如果安装的扩展需要自定义配置时 gd扩展
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) gd
-RUN docker-php-ext-install bcmath mysqli pdo pdo_mysql
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-install bcmath mysqli pdo pdo_mysql
