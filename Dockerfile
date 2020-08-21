@@ -1,4 +1,4 @@
-FROM php:7.2-fpm
+FROM php:5.6-fpm
 LABEL maintainer="megic@wiredmed.com"
 RUN apt-get update \
 	# 相关依赖必须手动安装
